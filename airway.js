@@ -5,7 +5,7 @@ const airplaneVariants = [
 
 function generateAirplane() {
   const randomNumber = Math.floor(Math.random() * 99) + 1;
-  const randomVariant = airplaneVariants[Math.floor(Math.random() * 2)];
+  const randomVariant = airplaneVariants[Math.floor(Math.random() * airplaneVariants.length)];
 
   const randomPlane = `
         <div 
