@@ -1,0 +1,23 @@
+#airwayGrid {
+    width: 100%;
+    height: 130px;
+
+    background: url('../assets/airway_grid_8x8.svg') repeat;
+    overflow: hidden;
+}
+
+.airplane {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.airplane .airplaneLine {
+    width: 360px;
+    height: 8px;
+}
+
+.airplane svg {
+    margin-left: -20px;
+}
