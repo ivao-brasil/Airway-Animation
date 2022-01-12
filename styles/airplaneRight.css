@@ -6,7 +6,7 @@
 
   -webkit-animation: ease-in-out infinite;
   -webkit-animation-name: flyRight;
-  -webkit-animation-duration: 20s;
+  -webkit-animation-duration: 10s;
 }
 
 .airplaneRight svg {
