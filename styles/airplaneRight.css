@@ -11,7 +11,6 @@
 
 .airplaneRight svg {
   fill: var(--airplane-right-fill-color);
-
   transform: rotate(180deg);
 }
 

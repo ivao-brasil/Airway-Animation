@@ -1,4 +1,4 @@
-const container = document.querySelector(".airway");
+const container = document.getElementById('airwayGrid');
 
 function generateAirplane() {
     const randomClass = Math.random() < 0.5 ? 'airplaneRight' : 'airplaneLeft';
