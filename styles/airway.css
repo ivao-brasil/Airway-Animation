@@ -3,6 +3,8 @@
   height: 130px;
 
   background: url("../assets/airway_grid_8x8.svg") repeat;
+
+  resize: vertical;
   overflow: hidden;
 }
 

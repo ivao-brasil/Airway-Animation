@@ -26,3 +26,20 @@ I have made a simple HTML file with a wrapper div and a JS file injecting child 
 Currently I am just adding planes but not actualy animating them... The animation is quite simple just a horizontal displacement. Pro tip: The side the plane is going will change the direction of the animation.
 
 At this time this I open this place for us to discuss the best way to implement this.
+
+---
+
+
+Todo: add config object for lib.
+
+Idea:
+```js
+
+const config = {
+    maxLimit: 'container' | number, // Limit of Spawnable airplanes
+    background: 'transparent' | 'hexColor', // Container background color
+    resizable: true | false, // Resizable container
+    colorFromLeft: [array of hexColor] | 'hexColor' | 'random', // Color of the airplanes coming from the left side. 
+    colorFromRight: [array of hexColor] | 'hexColor', // Color of the airplanes coming from the right side. 
+}
+```
