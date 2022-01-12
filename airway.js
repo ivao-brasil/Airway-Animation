@@ -29,5 +29,5 @@ function updateTimeout() {
     generateAirplane();
     clearInterval(myInterval);
 
-    if (airplaneCount < 8) myInterval = setInterval(updateTimeout, time);
+    if (airplaneCount < 6) myInterval = setInterval(updateTimeout, time);
 };
