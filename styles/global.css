@@ -5,8 +5,8 @@
 }
 
 :root {
-  --airplane-left-fill-color: #a339e3;
-  --airplane-right-fill-color: #2ec662;
+  --airplane-left-fill-color: #000000;
+  --airplane-right-fill-color: #000000;
 }
 
 body {

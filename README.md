@@ -34,12 +34,48 @@ Todo: add config object for lib.
 
 Idea:
 ```js
-
 const config = {
-    maxLimit: 'container' | number, // Limit of Spawnable airplanes
-    background: 'transparent' | 'hexColor', // Container background color
-    resizable: true | false, // Resizable container
-    colorFromLeft: [array of hexColor] | 'hexColor' | 'random', // Color of the airplanes coming from the left side. 
-    colorFromRight: [array of hexColor] | 'hexColor', // Color of the airplanes coming from the right side. 
+  maxLimit: 'container',
+  background: 'transparent',
+  resizable: true,
+  colorFromLeft: '#a339e3',
+  colorFromRight: '#2ec662',
 }
 ```
+
+Types Schema:
+
+```ts
+interface configTypes {
+  maxLimit: 'container' | number,
+  background: 'transparent' | string,
+  resizable: true | false,
+  colorFromLeft: string[] | string | 'random',
+  colorFromRight: string[] | string | 'random',
+}
+```
+
+How it should look in a React Project: 
+```jsx
+
+import React from 'react';
+import AirwayAnimation from 'airway-animation';
+
+const config = {
+  maxLimit: 'container',
+  background: 'transparent',
+  resizable: true,
+  colorFromLeft: '#a339e3',
+  colorFromRight: '#2ec662',
+}
+
+function sampleData() {
+  return (
+    <AirwayAnimation config={config} />
+  );
+}
+
+export default sampleData;
+
+```
+

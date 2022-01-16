@@ -1,6 +1,26 @@
 const wrapper = document.getElementById('airwayGrid');
 
-function executeAirplanes(container) {
+const defaultConfig = {
+    maxLimit: 'container',
+    background: 'transparent',
+    resizable: true,
+    colorFromLeft: 'blue',
+    colorFromRight: 'red',
+    log: false,
+};
+
+function executeAirplanes(container, userConfig = {}) {
+    const config = { ...defaultConfig, ...userConfig };
+
+    function initConfig() {
+
+        // Airplane Colors
+        document.documentElement.style.setProperty('--airplane-left-fill-color', config.colorFromLeft);
+        document.documentElement.style.setProperty('--airplane-right-fill-color', config.colorFromRight);
+    };
+
+    initConfig();
+
     function generateAirplane() {
         const randomClass = Math.random() < 0.5 ? 'airplaneRight' : 'airplaneLeft';
     
@@ -21,7 +41,7 @@ function executeAirplanes(container) {
         airplanesFlying.forEach((airplane, index) => {
             if (index > maxLimit - 1) {
                 airplane.remove();
-                console.log('Airplane removed');
+                log('Airplane removed');
             }
         });
     };
@@ -41,7 +61,7 @@ function executeAirplanes(container) {
         const containerHeightLimit = container.offsetHeight;
         const airplaneCountLimit = Math.floor(containerHeightLimit / 32) - 1;
     
-        console.warn(`INFO: This container fits: ${airplaneCountLimit + 1} airplane(s) and currently we have: ${airplaneCount + 1} airplane(s) flying!`);
+        log(`INFO: This container fits: ${airplaneCountLimit + 1} airplane(s) and currently we have: ${airplaneCount + 1} airplane(s) flying!`, 'warn');
 
         if (airplaneCount >= airplaneCountLimit) {
             clearAirplanes(airplaneCountLimit);
@@ -51,7 +71,7 @@ function executeAirplanes(container) {
         clearInterval(myInterval);
     
         if (airplaneCount < airplaneCountLimit) myInterval = setInterval(updateTimeout, time);
-        else console.error(`INFO: Airplane limit reached!`);
+        else log('INFO: Airplane limit reached!', 'info');
     };
 
     const containerHeight = container.offsetHeight;
@@ -60,9 +80,31 @@ function executeAirplanes(container) {
         const newContainerHeight = container.offsetHeight;
         if(containerHeight === newContainerHeight) return;
 
-        console.log(`Container has been resized to: ${newContainerHeight}`);
+        log(`Container has been resized to: ${newContainerHeight}`);
         updateTimeout();
         
     }).observe(container);
 
-}; executeAirplanes(wrapper);
+    function log(msg, type) {
+        if (!config.log) return;
+
+        console.log('Logmode is on!');
+
+        switch (type) {
+            case 'info':
+                console.info(msg);
+                break;
+            case 'warn':
+                console.warn(msg);
+                break;
+            case 'error':
+                console.error(msg);
+                break;
+            default:
+                console.log(msg);
+        };
+    };
+
+}; executeAirplanes(wrapper, {
+    log: true,
+});
