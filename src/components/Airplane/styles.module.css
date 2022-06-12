@@ -1,0 +1,77 @@
+.airplane {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.airplaneLine {
+    width: calc(100vw / 4);
+    height: 6px;
+}
+
+.left {
+    right: 0;
+
+    transform: rotate(180deg);
+
+    animation: ease-in-out infinite;
+    -webkit-animation: ease-in-out infinite;
+
+    animation-name: flyLeft;
+    -webkit-animation-name: flyLeft;
+
+    animation-duration: 13s;
+    -webkit-animation-duration: 13s;
+}
+
+.left svg {
+    transform: rotate(180deg);
+}
+
+.left .airplaneLine {
+    opacity: 0.5;
+
+    margin-right: -15px;
+}
+
+.right {
+    animation: ease-in-out infinite;
+    -webkit-animation: ease-in-out infinite;
+
+    animation-name: flyRight;
+    -webkit-animation-name: flyRight;
+
+    animation-duration: 10s;
+    -webkit-animation-duration: 10s;
+}
+
+.right svg {
+    transform: rotate(180deg);
+}
+
+.right .airplaneLine {
+    opacity: 0.5;
+
+    margin-right: -15px;
+}
+
+@keyframes flyRight {
+    0% {
+        left: calc(0px - ((100vw / 4) + 30px));
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes flyLeft {
+    0% {
+        right: calc(0px - ((100vw / 4) + 30px));
+    }
+
+    100% {
+        right: 100%;
+    }
+}

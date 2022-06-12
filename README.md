@@ -1,81 +1,26 @@
-# POC - Airway Animation
+# airway-animation
 
-Proof of concept on how to make the airway animation section for the new divisional website.
+> Made with create-react-library
 
-#### Here is how it should look:
+[![NPM](https://img.shields.io/npm/v/airway-animation.svg)](https://www.npmjs.com/package/airway-animation) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![How it should look](https://i.imgur.com/GaLOYxG.png)
+## Install
 
- *Keep in mind you should have access to this in the Figma file.*
-
-### Issue we found:
-
-- Making it with a single image is not enough.
-- It is not possible to make it responsive with a single image or even a GIF.
-- A Lottie animation would have the same issue cited above.
-
-### Solution:
-Make it in CSS / HTML / JS! 
-
-But how? *Good question.* haha
-
----
-
-I have made a simple HTML file with a wrapper div and a JS file injecting child elements (The airplanes). Feel free to use it as a starting point. Check out the JS file for more info *(It should be quite simple to understand)*.
-
-Currently I am just adding planes but not actualy animating them... The animation is quite simple just a horizontal displacement. Pro tip: The side the plane is going will change the direction of the animation.
-
-At this time this I open this place for us to discuss the best way to implement this.
-
----
-
-
-Todo: add config object for lib.
-
-Idea:
-```js
-const config = {
-  maxLimit: 'container',
-  background: 'transparent',
-  resizable: true,
-  colorFromLeft: '#a339e3',
-  colorFromRight: '#2ec662',
-}
+```bash
+npm install --save airway-animation
 ```
 
-Types Schema:
+## Usage
 
-```ts
-interface configTypes {
-  maxLimit: 'container' | number,
-  background: 'transparent' | string,
-  resizable: true | false,
-  colorFromLeft: string[] | string | 'random',
-  colorFromRight: string[] | string | 'random',
+```tsx
+import React, { Component } from 'react'
+
+import { AirwayAnimation } from 'airway-animation'
+import 'airway-animation/dist/index.css'
+
+class Example extends Component {
+  render() {
+    return <AirwayAnimation />
+  }
 }
 ```
-
-How it should look in a React Project: 
-```jsx
-
-import React from 'react';
-import AirwayAnimation from 'airway-animation';
-
-const config = {
-  maxLimit: 'container',
-  background: 'transparent',
-  resizable: true,
-  colorFromLeft: '#a339e3',
-  colorFromRight: '#2ec662',
-}
-
-function sampleData() {
-  return (
-    <AirwayAnimation config={config} />
-  );
-}
-
-export default sampleData;
-
-```
-
