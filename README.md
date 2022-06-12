@@ -13,7 +13,7 @@ Proof of concept on how to make the airway animation section for the new divisio
 ## Install
 
 ```bash
-npm install --save git+https://github.com/ivao-brasil/POC-Airway-Animation.git
+npm install --save git+https://github.com/ivao-brasil/Airway-Animation.git
 ```
 
 ## Usage
