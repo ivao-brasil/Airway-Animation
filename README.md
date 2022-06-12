@@ -1,8 +1,14 @@
-# airway-animation
+# POC - Airway Animation
 
 > Made with create-react-library
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+Proof of concept on how to make the airway animation section for the new divisional website.
+
+#### Here is how it should look:
+
+![How it should look](https://i.imgur.com/GaLOYxG.png)
 
 ## Install
 
@@ -20,5 +26,16 @@ import 'airway-animation/dist/index.css'
 
 const App = () => {
     return <AirwayAnimation />
+}
+```
+
+Props Schema:
+
+```ts
+interface Props {
+    airplaneColors?: {
+        left?: string;
+        right?: string;
+    };
 }
 ```
